@@ -1,21 +1,9 @@
-{% extends 'base.html' %}
-
-{% block content %}
-
-{% load static %}
-<link rel="stylesheet" href="{% static 'bert_classifier/style.css' %}">
-
 {% if tasks_list %}
 <ul>
     {% for task in tasks_list %}
-        {% if task.task_name == "Text Classification" %}
-            <li><a href="{% url 'bert_classifier:detail' task.id %}">{{ task.task_name }}</a></li>
-        {% endif %}
-
+        <li><a href="{% url 'bert_classifier:detail' task.id %}">{{ task.task_name }}</a></li>
     {% endfor %}
 </ul>
 {% else %}
 <p>No tasks are available.</p>
 {% endif %}
-
-{% endblock %}

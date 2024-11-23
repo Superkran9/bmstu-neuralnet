@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Диалоговый бот{% endblock %}
+
+{% block content %}
+<h2>Диалоговые задачи</h2>
+<ul>
+    {% for task in tasks_list %}
+        <li><a href="{% url 'dialog_bot:detail' task.id %}">{{ task.task_name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
