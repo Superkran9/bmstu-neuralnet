@@ -1,0 +1,24 @@
+ {% extends 'base.html' %}
+
+{% block content %}
+<h1>Список изображений</h1>
+
+{% if images %}
+    <ul>
+    {% for image in images %}
+        <li>
+            <strong>{{ image.image_class }}</strong><br>
+            <img src="{{ image.image.url }}" alt="Image" style="max-height:200px;">
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Нет изображений для отображения.</p>
+{% endif %}
+
+<form action="{% url 'image_classification:detail' image.task.id %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <button type="submit">Загрузить новое изображение</button>
+</form>
+
+{% endblock %}

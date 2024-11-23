@@ -32,5 +32,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('bert_classifier/', include('bert_classifier.urls')),
-    path('dialog_bot/', include('dialog_bot.urls'))
+    path('dialog_bot/', include('dialog_bot.urls')),
+    path('image_classification/', include('image_classification.urls')),
 ]
+
